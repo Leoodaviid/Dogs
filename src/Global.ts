@@ -91,7 +91,7 @@ button, input {
     overflow: hidden;
     cursor: pointer;
   }
-  .img img{
+  .img > div{
     grid-area: 1/1;
   }
   .img span{

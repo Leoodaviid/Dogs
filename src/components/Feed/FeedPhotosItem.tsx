@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Photo } from "../../models/models";
+import Image from "../Helper/Image";
 
 interface FeedPhotoItemProps {
   photo: Photo;
@@ -15,7 +16,7 @@ const FeedPhotosItem: React.FC<FeedPhotoItemProps> = ({
   }
   return (
     <li className="img" onClick={handleClick}>
-      <img src={photo.src} alt={photo.title} />
+      <Image src={photo.src} alt={photo.title} />
       <span>{photo.acessos}</span>
     </li>
   );

@@ -21,7 +21,7 @@ const PhotoContent: React.FC<PhotoContentProps> = ({ data }) => {
         <div className="details">
           <div>
             <p className="author">
-              {user.data && user.data.nome === photo.author ? (
+              {user.data && user.data.username === photo.author ? (
                 <PhotoDelete id={photo.id} />
               ) : (
                 <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>

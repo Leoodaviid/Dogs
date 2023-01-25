@@ -5,7 +5,7 @@ import PhotoCommentsForm from "./PhotoCommentsForm";
 import { CommentStyle } from "./style";
 
 interface PhotoCommentsProps {
-  id: Photo[];
+  id: Photo;
   comments: Comment[];
 }
 const PhotoComments: React.FC<PhotoCommentsProps> = ({ id, comments }) => {

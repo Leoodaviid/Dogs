@@ -6,7 +6,7 @@ import { FormCommentsStyle } from "./style";
 import Error from "../Helper/Error";
 
 interface CommentsFormProps {
-  id: Photo[] | any;
+  id: Photo | string;
   setNewComments: Dispatch<SetStateAction<Comment[]>>;
 }
 const PhotoCommentsForm: React.FC<CommentsFormProps> = ({
@@ -20,6 +20,7 @@ const PhotoCommentsForm: React.FC<CommentsFormProps> = ({
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
     sendNewComment({ comment }, id, token);
+    console.log(data);
     if (data) {
       setComment("");
       setNewComments((newComments) => [...newComments, data]);
@@ -33,7 +34,7 @@ const PhotoCommentsForm: React.FC<CommentsFormProps> = ({
           className="formTextarea"
           id="comment"
           name="comment"
-          placeholder="Coment..."
+          placeholder="Comente..."
           value={comment}
           onChange={({ target }) => setComment(target.value)}
         />

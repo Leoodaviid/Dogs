@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 type ContextProviderData = {
   data: {
     email: string;
-    nome: string;
+    username: string;
   } | null;
   userLogin: (username: string, password: string) => Promise<void>;
   userLogout(): Promise<void>;

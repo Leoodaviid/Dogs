@@ -60,6 +60,13 @@ export function PHOTOS_GET(payload: PhotosGetPayload): Promise<AxiosResponse> {
 export function PHOTO_GET(id: string | number): Promise<AxiosResponse> {
   return baseApi.get(`/api/photo/${id}`);
 }
+export function PHOTO_DELETE(id: string): Promise<AxiosResponse> {
+  return baseApi.delete(`/api/photo/${id}`, {
+    headers: {
+      Athorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
+}
 
 interface CommentProps {
   comment: string | any;

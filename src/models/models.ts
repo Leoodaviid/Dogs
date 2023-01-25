@@ -1,8 +1,9 @@
 export interface Comment {
-  comment_ID: string;
+  comment_ID: string | number;
   comment_author: string;
-  dataHora: Date;
   comment_content: string;
+  comment_post_ID: string | number;
+  user_ID: string | number;
 }
 
 export interface Photo {

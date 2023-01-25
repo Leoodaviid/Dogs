@@ -15,7 +15,7 @@ const Header = () => {
         </Link>
         {data ? (
           <Link className="login" to="/conta">
-            {data.nome}
+            {data.username}
           </Link>
         ) : (
           <Link className="login" to="/login">

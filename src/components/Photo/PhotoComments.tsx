@@ -7,8 +7,13 @@ import { CommentStyle } from "./style";
 interface PhotoCommentsProps {
   id: Photo;
   comments: Comment[];
+  single?: boolean;
 }
-const PhotoComments: React.FC<PhotoCommentsProps> = ({ id, comments }) => {
+const PhotoComments: React.FC<PhotoCommentsProps> = ({
+  id,
+  comments,
+  single,
+}) => {
   const [newComments, setNewComments] = useState(() => comments);
   const commentsSection = useRef<any>(null);
   const { login } = useContext(UserContext);
@@ -18,7 +23,10 @@ const PhotoComments: React.FC<PhotoCommentsProps> = ({ id, comments }) => {
   });
   return (
     <CommentStyle>
-      <ul ref={commentsSection} className="comments">
+      <ul
+        ref={commentsSection}
+        className={`comments ${single ? `single` : ""}`}
+      >
         {newComments.map((comment) => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
@@ -26,7 +34,13 @@ const PhotoComments: React.FC<PhotoCommentsProps> = ({ id, comments }) => {
           </li>
         ))}
       </ul>
-      {login && <PhotoCommentsForm id={id} setNewComments={setNewComments} />}
+      {login && (
+        <PhotoCommentsForm
+          single={single}
+          id={id}
+          setNewComments={setNewComments}
+        />
+      )}
     </CommentStyle>
   );
 };

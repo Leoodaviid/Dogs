@@ -5,6 +5,7 @@ const FeedPhotosStyle = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    margin-top: 1rem;
     justify-items: center;
   }
   @media (max-width: 40rem) {

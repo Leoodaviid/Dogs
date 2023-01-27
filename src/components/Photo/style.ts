@@ -15,6 +15,10 @@ const PhotoContentStyle = styled.div`
     transform: scale(0.8);
     animation: scaleUp 0.3s forwards;
   }
+  .single.photoContent {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
   @keyframes scaleUp {
     to {
       opacity: initial;
@@ -24,12 +28,18 @@ const PhotoContentStyle = styled.div`
   .details {
     padding: 2rem 2rem 0 2rem;
   }
+  .single .details {
+    padding: 1rem 14rem 0px 0px;
+  }
   .imgContent {
     grid-row: 1/4;
   }
-  .comments {
-    padding: 0 2rem;
+  .single .imgContent {
+    grid-row: 1;
+    border-radius: 0.4rem;
+    overflow: hidden;
   }
+
   @media (max-width: 64rem) {
     .photoContent {
       height: auto;
@@ -89,6 +99,9 @@ const CommentStyle = styled.div`
     word-break: break-word;
     padding: 2rem;
   }
+  .single.comments {
+    padding: 0px;
+  }
   .comments li {
     margin-bottom: 0.5rem;
     line-height: 1.2rem;
@@ -101,6 +114,9 @@ const FormCommentsStyle = styled.div`
     grid-template-columns: 1fr auto;
     align-items: stretch;
     margin: 1rem;
+  }
+  .single.formComment {
+    margin: 1rem 0;
   }
   .formTextarea {
     display: block;

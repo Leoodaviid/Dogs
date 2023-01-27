@@ -8,10 +8,12 @@ import Error from "../Helper/Error";
 interface CommentsFormProps {
   id: Photo | string;
   setNewComments: Dispatch<SetStateAction<Comment[]>>;
+  single?: boolean;
 }
 const PhotoCommentsForm: React.FC<CommentsFormProps> = ({
   id,
   setNewComments,
+  single,
 }) => {
   const [comment, setComment] = useState<string>();
   const { sendNewComment, data, error } = useComments();
@@ -29,7 +31,10 @@ const PhotoCommentsForm: React.FC<CommentsFormProps> = ({
 
   return (
     <FormCommentsStyle>
-      <form className="formComment" onSubmit={handleSubmit}>
+      <form
+        className={`formComment ${single ? `single` : ""}`}
+        onSubmit={handleSubmit}
+      >
         <textarea
           className="formTextarea"
           id="comment"

@@ -9,13 +9,14 @@ import Image from "../Helper/Image";
 
 interface PhotoContentProps {
   data: Photo[] | any;
+  single?: boolean;
 }
-const PhotoContent: React.FC<PhotoContentProps> = ({ data }) => {
+const PhotoContent: React.FC<PhotoContentProps> = ({ data, single }) => {
   const user = useContext(UserContext);
   const { photo, comments } = data;
   return (
     <PhotoContentStyle>
-      <div className="photoContent">
+      <div className={`photoContent ${single ? `single` : ""}`}>
         <div className="imgContent">
           <Image src={photo.src} alt={photo.title} />
         </div>
@@ -38,7 +39,7 @@ const PhotoContent: React.FC<PhotoContentProps> = ({ data }) => {
             </ul>
           </div>
         </div>
-        <PhotoComments id={photo.id} comments={comments} />
+        <PhotoComments single={single} id={photo.id} comments={comments} />
       </div>
     </PhotoContentStyle>
   );

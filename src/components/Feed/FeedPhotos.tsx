@@ -1,4 +1,4 @@
-import { useEffect, useState, Dispatch, SetStateAction } from "react";
+import { useEffect, Dispatch, SetStateAction } from "react";
 import usePhoto from "../../Hooks/usePhoto";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
@@ -7,14 +7,15 @@ import { FeedPhotosStyle } from "./style";
 
 interface ModalProps {
   setModalPhoto: Dispatch<SetStateAction<any>>;
+  user: number;
 }
 
-const FeedPhotos: React.FC<ModalProps> = ({ setModalPhoto }) => {
-  const { photoData, fetchPhotos, error, loading } = usePhoto();
+const FeedPhotos: React.FC<ModalProps> = ({ user, setModalPhoto }) => {
+  const { photoData, getPhotos, error, loading } = usePhoto();
 
   useEffect(() => {
-    fetchPhotos(1, 6, 0);
-  }, []);
+    getPhotos(1, 6, user);
+  }, [user]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;

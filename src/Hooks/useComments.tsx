@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Comment } from "../models/models";
-import { COMMENT_POST, PHOTO_DELETE } from "../services/MainApi/login";
+import { COMMENT_POST } from "../services/MainApi/login";
 
 interface useCommentsProps {
   data: Comment;
@@ -11,7 +11,6 @@ interface useCommentsProps {
     id: any | number,
     token?: any | string
   ) => Promise<void>;
-  photoDelete: (id: string) => Promise<void>;
 }
 
 const useComments = (): useCommentsProps => {
@@ -32,27 +31,13 @@ const useComments = (): useCommentsProps => {
         throw new Error(`Error: ${response.statusText}`);
       setData(response.data);
     } catch (err: any) {
-      // const message = err.response.statusText;
       setError(err.message);
     } finally {
       setLoading(false);
     }
   }
 
-  async function photoDelete(id: string) {
-    try {
-      setError(null);
-      setLoading(true);
-      const response = await PHOTO_DELETE(id);
-      if (response.status !== 200)
-        throw new Error(`Error: ${response.statusText}`);
-    } catch (err: any) {
-      setError(err.message);
-    }
-  }
-
   return {
-    photoDelete,
     data,
     sendNewComment,
     loading,

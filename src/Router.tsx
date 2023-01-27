@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
 import { UserStorage } from "./UserContext";
 import ProtectedRouter from "./components/Helper/protectedRouter";
+import Photo from "./components/Photo/Photo";
 
 export default function Routes() {
   return (
@@ -21,6 +22,7 @@ export default function Routes() {
           <Route path="login/*" element={<Login />} />
           <Route element={<ProtectedRouter />}>
             <Route path="conta/*" element={<User />} />
+            <Route path="foto/:id" element={<Photo />} />
           </Route>
         </WrapperRoutes>
         <Footer />

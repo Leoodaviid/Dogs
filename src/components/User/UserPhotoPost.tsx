@@ -1,4 +1,4 @@
-import { FormEvent, useState, ChangeEvent, useEffect, useContext } from "react";
+import { FormEvent, useState, ChangeEvent, useEffect } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Error from "../Helper/Error";
@@ -31,7 +31,7 @@ const UserPhotoPost = () => {
     formData.append("nome", nome.value);
     formData.append("peso", peso.value);
     formData.append("idade", idade.value);
-    formData.append("files", img.raw);
+    formData.append("img", img.raw);
 
     const token = window.localStorage.getItem("token");
     sendNewPhoto(formData, token);

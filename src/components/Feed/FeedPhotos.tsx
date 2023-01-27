@@ -1,5 +1,6 @@
-import { useEffect, Dispatch, SetStateAction } from "react";
-import usePhoto from "../../Hooks/usePhoto";
+import { useEffect, Dispatch, SetStateAction, useState } from "react";
+import { Photo } from "../../models/models";
+import { PHOTOS_GET } from "../../services/MainApi/login";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
 import FeedPhotosItem from "./FeedPhotosItem";
@@ -7,15 +8,39 @@ import { FeedPhotosStyle } from "./style";
 
 interface ModalProps {
   setModalPhoto: Dispatch<SetStateAction<any>>;
+  setInfinite: Dispatch<SetStateAction<boolean>>;
   user: number;
+  page: number;
 }
 
-const FeedPhotos: React.FC<ModalProps> = ({ user, setModalPhoto }) => {
-  const { photoData, getPhotos, error, loading } = usePhoto();
+const FeedPhotos: React.FC<ModalProps> = ({
+  page,
+  user,
+  setModalPhoto,
+  setInfinite,
+}) => {
+  const [photoData, setPhotoData] = useState<Photo[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getPhotos(1, 6, user);
-  }, [user]);
+    async function getPhotos() {
+      const total = 6;
+      try {
+        setError(null);
+        setLoading(true);
+        const response = await PHOTOS_GET({ page, total, user });
+        if (response && response.status === 200 && response.data.length < total)
+          setInfinite(false);
+        setPhotoData(response.data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getPhotos();
+  }, [user, page, setPhotoData, setInfinite]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;

@@ -11,11 +11,11 @@ interface FeedModalProps {
   setModalPhoto: Dispatch<SetStateAction<Photo | null>>;
 }
 const FeedModal: React.FC<FeedModalProps> = ({ photo, setModalPhoto }) => {
-  const { photoData, getPhoto, error, loading } = usePhoto();
+  const { photoComments, getPhoto, error, loading } = usePhoto();
 
   useEffect(() => {
     getPhoto(photo.id);
-  }, [photo]);
+  }, []);
 
   function handleOutsideClick(event: MouseEvent) {
     if (event.target === event.currentTarget) setModalPhoto(null);
@@ -25,7 +25,7 @@ const FeedModal: React.FC<FeedModalProps> = ({ photo, setModalPhoto }) => {
       <div className="modal" onClick={handleOutsideClick}>
         {error && <Error error={error} />}
         {loading && <Loading />}
-        {photoData && <PhotoContent data={photoData} />}
+        {photoComments && <PhotoContent data={photoComments} />}
       </div>
     </FeedModalStyle>
   );

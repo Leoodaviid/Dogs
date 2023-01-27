@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 type ContextProviderData = {
   data: {
+    id: number;
     email: string;
     username: string;
-  } | null;
+  };
   userLogin: (username: string, password: string) => Promise<void>;
   userLogout(): Promise<void>;
   error: null;
@@ -23,7 +24,7 @@ export const UserContext = createContext<ContextProviderData>(
 );
 
 export const UserStorage = ({ children }: { children: React.ReactNode }) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>();
   const [login, setLogin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

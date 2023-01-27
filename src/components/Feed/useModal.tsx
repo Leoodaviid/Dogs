@@ -3,7 +3,6 @@ import React, {
   useState,
   Dispatch,
   SetStateAction,
-  ReactNode,
 } from "react";
 import { Photo } from "../../models/models";
 

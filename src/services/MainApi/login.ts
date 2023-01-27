@@ -57,7 +57,9 @@ export function PHOTOS_GET(payload: PhotosGetPayload): Promise<AxiosResponse> {
     `/api/photo/?_page=${payload.page}&_total=${payload.total}&_user=${payload.user}`
   );
 }
-export function PHOTO_GET(id: string | number): Promise<AxiosResponse> {
+export function PHOTO_GET(
+  id: string | number | undefined
+): Promise<AxiosResponse> {
   return baseApi.get(`/api/photo/${id}`);
 }
 export function PHOTO_DELETE(id: string): Promise<AxiosResponse> {

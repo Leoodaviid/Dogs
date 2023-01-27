@@ -63,7 +63,7 @@ export function PHOTO_GET(id: string | number): Promise<AxiosResponse> {
 export function PHOTO_DELETE(id: string): Promise<AxiosResponse> {
   return baseApi.delete(`/api/photo/${id}`, {
     headers: {
-      Athorization: "Bearer " + localStorage.getItem("token"),
+      Authorization: `Bearer ` + window.localStorage.getItem("token"),
     },
   });
 }

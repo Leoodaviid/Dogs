@@ -1,15 +1,18 @@
 import { useState } from "react";
 import FeedModal from "./FeedModal";
 import FeedPhotos from "./FeedPhotos";
-
-const Feed = () => {
+interface UsuarioProps {
+  user: number;
+}
+const Feed: React.FC<UsuarioProps> = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState<any>();
+
   return (
     <div>
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
-      <FeedPhotos setModalPhoto={setModalPhoto} />
+      <FeedPhotos user={user} setModalPhoto={setModalPhoto} />
     </div>
   );
 };

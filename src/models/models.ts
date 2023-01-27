@@ -13,16 +13,15 @@ export interface Photo {
   idade: number;
   peso: number;
   acessos: number;
-  comments: Comment[];
   extencao: string;
   src: string;
 }
 
 export interface Usuario {
-  id: string;
-  nome: null;
-  nomeDeUsuario: string;
-  fotos: Photo[];
+  id?: number;
+  username?: null;
+  email?: string;
+  fotos?: Photo[];
 }
 
 export interface ResponseApi<T> {

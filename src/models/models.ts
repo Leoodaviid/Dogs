@@ -7,13 +7,12 @@ export interface Comment {
 }
 
 export interface Photo {
-  id: string;
-  author: string;
-  title: string;
-  idade: number;
-  peso: number;
   acessos: number;
-  extencao: string;
+  author: string;
+  id: string;
+  idade: number;
+  title: string;
+  peso: number;
   src: string;
 }
 
@@ -42,4 +41,8 @@ export interface Stats {
   fotoId: string;
   nome: string;
   qtdAcessos: number;
+}
+export interface PasswordLostProps {
+  login: string;
+  url: string;
 }

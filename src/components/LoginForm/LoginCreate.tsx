@@ -1,4 +1,4 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import useForm from "../../Hooks/useForm";
@@ -12,20 +12,30 @@ const LoginCreate = () => {
   const email = useForm("email");
   const password = useForm();
 
-  const { userLogin, error, loading } = useContext(UserContext);
+  const { userLogin } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const response = await USER_POST({
-      username: username.value,
-      email: email.value,
-      password: password.value,
-    });
-
-    if (response.status === 200) userLogin(username.value, password.value);
-
-    console.log(response.data);
+    if (username.validate() && email.validate() && password.validate()) {
+      try {
+        setError(null);
+        setLoading(true);
+        const response = await USER_POST({
+          username: username.value,
+          email: email.value,
+          password: password.value,
+        });
+        if (response.status === 200) userLogin(username.value, password.value);
+      } catch (err) {
+        const message = "Error: Email já cadastrado.";
+        setError(message);
+      } finally {
+        setLoading(false);
+      }
+    }
   }
   return (
     <section className="animeLeft">

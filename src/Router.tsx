@@ -11,6 +11,8 @@ import Login from "./pages/Login/Login";
 import { UserStorage } from "./UserContext";
 import ProtectedRouter from "./components/Helper/protectedRouter";
 import Photo from "./components/Photo/Photo";
+import UserProfile from "./components/User/UserProfile";
+import NotFound from "./components/NotFound/NotFound";
 
 export default function Routes() {
   return (
@@ -22,8 +24,10 @@ export default function Routes() {
           <Route path="login/*" element={<Login />} />
           <Route element={<ProtectedRouter />}>
             <Route path="conta/*" element={<User />} />
-            <Route path="foto/:id" element={<Photo />} />
           </Route>
+          <Route path="foto/:id" element={<Photo />} />
+          <Route path="perfil/:user" element={<UserProfile />} />
+          <Route path="*" element={<NotFound />} />
         </WrapperRoutes>
         <Footer />
       </UserStorage>

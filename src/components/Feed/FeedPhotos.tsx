@@ -25,14 +25,18 @@ const FeedPhotos: React.FC<ModalProps> = ({
 
   useEffect(() => {
     async function getPhotos() {
-      const total = 6;
+      const total = 3;
       try {
         setError(null);
         setLoading(true);
-        const response = await PHOTOS_GET({ page, total, user });
-        if (response && response.status === 200 && response.data.length < total)
-          setInfinite(false);
+        const response = await PHOTOS_GET({
+          page,
+          total,
+          user,
+        });
         setPhotoData(response.data);
+        if (response.status === 200 && response.data.length < total)
+          setInfinite(false);
       } catch (err: any) {
         setError(err.message);
       } finally {

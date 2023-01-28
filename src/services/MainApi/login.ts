@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { PasswordLostProps } from "../../models/models";
+import { PasswordLostProps, PasswordResetProps } from "../../models/models";
 import baseApi from "./config";
 
 interface LoginPayload {
@@ -40,6 +40,15 @@ export function PASSWORD_LOST(
   payload: PasswordLostProps | Promise<AxiosResponse>
 ) {
   return baseApi.post("/api/password/lost", payload, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+export function PASSWORD_RESET(
+  payload: PasswordResetProps | Promise<AxiosResponse>
+) {
+  return baseApi.post("/api/password/reset", payload, {
     headers: {
       "Content-Type": "application/json",
     },

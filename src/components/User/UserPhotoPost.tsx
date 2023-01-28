@@ -6,6 +6,7 @@ import { PhotoPostStyle } from "./styled";
 import useForm from "../../Hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import usePhoto from "../../Hooks/usePhoto";
+import Head from "../Helper/Head";
 
 interface PreviewImg {
   preview: string;
@@ -50,6 +51,7 @@ const UserPhotoPost = () => {
   return (
     <PhotoPostStyle>
       <div className={`photoPost animeLeft`}>
+        <Head title="Poste sua Foto" />
         <form onSubmit={handleSubmit}>
           <Input label="Nome" type="text" name="nome" {...nome} />
           <Input label="Peso" type="number" name="peso" {...peso} />

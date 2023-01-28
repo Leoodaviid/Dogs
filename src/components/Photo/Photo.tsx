@@ -4,6 +4,7 @@ import usePhoto from "../../Hooks/usePhoto";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
 import PhotoContent from "./PhotoContent";
+import Head from "../Helper/Head";
 
 const Photo = () => {
   const { getPhoto, photoComments, error, loading } = usePhoto();
@@ -18,6 +19,7 @@ const Photo = () => {
   if (photoComments)
     return (
       <section className="container mainContainer">
+        <Head title={photoComments.photo.title} />
         <PhotoContent single={true} data={photoComments} />
       </section>
     );

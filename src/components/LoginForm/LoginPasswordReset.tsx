@@ -3,6 +3,7 @@ import useApi from "../../Hooks/useApi";
 import useForm from "../../Hooks/useForm";
 import Botao from "../Button/Button";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 import Input from "../Input/Input";
 
 const LoginPasswordReset = () => {
@@ -31,6 +32,7 @@ const LoginPasswordReset = () => {
   }
   return (
     <div>
+      <Head title="Resete a senha" />
       <h1 className="title">Resete a Senha</h1>
       <form onSubmit={handleSubmit}>
         <Input

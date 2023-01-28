@@ -3,6 +3,7 @@ import useApi from "../../Hooks/useApi";
 import useForm from "../../Hooks/useForm";
 import Botao from "../Button/Button";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 import Input from "../Input/Input";
 
 const LoginPasswordLost = () => {
@@ -20,6 +21,7 @@ const LoginPasswordLost = () => {
   }
   return (
     <section>
+      <Head title="Perdeu a senha" />
       <h1 className="title">Perdeu a senha?</h1>
       {data ? (
         <p style={{ color: "#4c1" }}>{data}</p>

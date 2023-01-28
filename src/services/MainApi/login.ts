@@ -1,4 +1,5 @@
 import { AxiosResponse } from "axios";
+import { PasswordLostProps } from "../../models/models";
 import baseApi from "./config";
 
 interface LoginPayload {
@@ -33,6 +34,12 @@ export function TOKEN_VALIDATE_POST(token: string) {
       "Authorization"
     ] = `Bearer ${token}`),
   });
+}
+
+export function PASSWORD_LOST(
+  payload: PasswordLostProps | Promise<AxiosResponse>
+) {
+  return baseApi.post("/api/password/lost", payload);
 }
 
 interface PhotoPostPayload {

@@ -46,3 +46,8 @@ export interface PasswordLostProps {
   login: string;
   url: string;
 }
+export interface PasswordResetProps {
+  login: string;
+  key: string;
+  password: string;
+}

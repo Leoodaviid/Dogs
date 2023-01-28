@@ -7,7 +7,7 @@ import Input from "../Input/Input";
 
 const LoginPasswordLost = () => {
   const login = useForm("nome");
-  const { PasswordLost, error, loading } = useApi();
+  const { PasswordLost, data, error, loading } = useApi();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -21,14 +21,19 @@ const LoginPasswordLost = () => {
   return (
     <section>
       <h1 className="title">Perdeu a senha?</h1>
-      <form onSubmit={handleSubmit}>
-        <Input label="Email / Usuário" type="text" name="email" {...login} />
-        {loading ? (
-          <Botao disabled>Enviando...</Botao>
-        ) : (
-          <Botao>Enviar Email</Botao>
-        )}
-      </form>
+      {data ? (
+        <p style={{ color: "#4c1" }}>{data}</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <Input label="Email / Usuário" type="text" name="email" {...login} />
+          {loading ? (
+            <Botao disabled>Enviando...</Botao>
+          ) : (
+            <Botao>Enviar Email</Botao>
+          )}
+        </form>
+      )}
+
       <Error error={error} />
     </section>
   );

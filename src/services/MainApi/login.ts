@@ -39,7 +39,11 @@ export function TOKEN_VALIDATE_POST(token: string) {
 export function PASSWORD_LOST(
   payload: PasswordLostProps | Promise<AxiosResponse>
 ) {
-  return baseApi.post("/api/password/lost", payload);
+  return baseApi.post("/api/password/lost", payload, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
 
 interface PhotoPostPayload {

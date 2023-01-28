@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import FeedModal from "./FeedModal";
 import FeedPhotos from "./FeedPhotos";
 interface UsuarioProps {
-  user: number;
+  user: number | string | undefined;
 }
 const Feed: React.FC<UsuarioProps> = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState<any>();

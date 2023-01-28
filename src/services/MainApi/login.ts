@@ -50,7 +50,7 @@ export function PHOTO_POST(data: PhotoPostPayload): Promise<AxiosResponse> {
 interface PhotosGetPayload {
   page: number;
   total: number;
-  user: number;
+  user: number | string | undefined;
 }
 export function PHOTOS_GET(payload: PhotosGetPayload): Promise<AxiosResponse> {
   return baseApi.get(

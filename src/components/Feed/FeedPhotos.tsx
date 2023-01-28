@@ -9,7 +9,7 @@ import { FeedPhotosStyle } from "./style";
 interface ModalProps {
   setModalPhoto: Dispatch<SetStateAction<any>>;
   setInfinite: Dispatch<SetStateAction<boolean>>;
-  user: number;
+  user: number | string | undefined;
   page: number;
 }
 

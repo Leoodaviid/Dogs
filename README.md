@@ -1,14 +1,12 @@
 <div align="center">
     <img src='./logo_readme.png'>
-    <p style=color:white>
-        Dogs, uma rede social para cachorros.
-    </p>
     <div>
-    <img src="https://img.shields.io/github/repo-size/Leoodaviid/dog">
-    <img src="https://img.shields.io/github/last-commit/Leoodaviid/dog">        	<img src="https://img.shields.io/github/languages/count/Leoodaviid/dog">
-    <img src="https://img.shields.io/github/languages/top/Leoodaviid/dog">     
+    <img src="https://img.shields.io/github/repo-size/Leoodaviid/Dogs">
+    <img src="https://img.shields.io/github/last-commit/Leoodaviid/Dogs">        	<img src="https://img.shields.io/github/languages/count/Leoodaviid/Dogs">
+    <img src="https://img.shields.io/github/languages/top/Leoodaviid/Dogs">     
     </div>
 </div></br>
+
 
 <h2>🔖 Descrição:</h2>
 
@@ -38,7 +36,6 @@ $ npm start
 </br>
 </br>
 Criado por <a href="https://github.com/Leoodaviid" target="_blank">Leonardo David</a></P>
-
 
 
 

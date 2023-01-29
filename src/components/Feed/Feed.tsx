@@ -46,7 +46,7 @@ const Feed: React.FC<UsuarioProps> = ({ user }) => {
           setInfinite={setInfinite}
         />
       ))}
-      {!infinite && (
+      {!infinite && !user && (
         <p
           style={{
             textAlign: "center",

@@ -19,16 +19,18 @@ export default function Routes() {
     <BrowserRouter>
       <UserStorage>
         <Header />
-        <WrapperRoutes>
-          <Route path="/" element={<Home />} />
-          <Route path="login/*" element={<Login />} />
-          <Route element={<ProtectedRouter />}>
-            <Route path="conta/*" element={<User />} />
-          </Route>
-          <Route path="foto/:id" element={<Photo />} />
-          <Route path="perfil/:user" element={<UserProfile />} />
-          <Route path="*" element={<NotFound />} />
-        </WrapperRoutes>
+        <main className="AppBody">
+          <WrapperRoutes>
+            <Route path="/" element={<Home />} />
+            <Route path="login/*" element={<Login />} />
+            <Route element={<ProtectedRouter />}>
+              <Route path="conta/*" element={<User />} />
+            </Route>
+            <Route path="foto/:id" element={<Photo />} />
+            <Route path="perfil/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
+          </WrapperRoutes>
+        </main>
         <Footer />
       </UserStorage>
     </BrowserRouter>

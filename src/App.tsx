@@ -6,9 +6,7 @@ function App() {
     <>
       <StyleGlobal />
       <div className="App">
-        <main className="AppBody">
-          <Routes />
-        </main>
+        <Routes />
       </div>
     </>
   );

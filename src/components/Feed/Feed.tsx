@@ -46,6 +46,17 @@ const Feed: React.FC<UsuarioProps> = ({ user }) => {
           setInfinite={setInfinite}
         />
       ))}
+      {!infinite && (
+        <p
+          style={{
+            textAlign: "center",
+            padding: "2rem 0 1rem 0",
+            color: "#888",
+          }}
+        >
+          Não existem mais postagens.
+        </p>
+      )}
     </div>
   );
 };

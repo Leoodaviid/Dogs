@@ -20,6 +20,7 @@ const FormStyle = styled.section`
   }
   .cadastro {
     margin-top: 4rem;
+    margin-bottom: 4rem;
   }
   .cadastro p {
     margin-top: 2rem;
@@ -56,6 +57,7 @@ const LoginStyle = styled.div`
   .forms {
     max-width: 30rem;
     padding: 1rem;
+    margin-top: 20vh;
   }
   @media (max-width: 40rem) {
     .login {

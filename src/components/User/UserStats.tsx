@@ -4,7 +4,7 @@ const UserStats = () => {
   return (
     <div>
       <Head title="Estatísticas" />
-      status
+      Em construção...
     </div>
   );
 };

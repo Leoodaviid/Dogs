@@ -126,6 +126,15 @@ button, input {
     }
 }
 
+.App{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh + 10rem);
+}
+.AppBody{
+    flex: 1;
+}
+
 `;
 
 export { StyleGlobal };

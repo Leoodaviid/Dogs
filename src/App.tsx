@@ -3,10 +3,14 @@ import { StyleGlobal } from "./Global";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <StyleGlobal />
-      <Routes />
-    </div>
+      <div className="App">
+        <main className="AppBody">
+          <Routes />
+        </main>
+      </div>
+    </>
   );
 }
 

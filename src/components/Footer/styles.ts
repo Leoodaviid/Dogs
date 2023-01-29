@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StylesFooter = styled.footer`
+  margin-top: 1rem;
   background: #fb1;
   padding: 3rem 1rem 0 1rem;
   height: 10rem;

@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
-export const stylesFooter = styled.footer`
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+const StylesFooter = styled.footer`
+  background: #fb1;
+  padding: 3rem 1rem 0 1rem;
+  height: 10rem;
+  text-align: center;
+  color: #764701;
+
+  p {
+    margin-top: 1rem;
+  }
 `;
+export { StylesFooter };

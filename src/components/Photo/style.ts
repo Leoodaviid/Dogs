@@ -29,7 +29,7 @@ const PhotoContentStyle = styled.div`
     padding: 2rem 2rem 0 2rem;
   }
   .single .details {
-    padding: 1rem 14rem 0px 0px;
+    padding: 1rem 0px 0px 0px;
   }
   .imgContent {
     grid-row: 1/4;
@@ -100,6 +100,7 @@ const CommentStyle = styled.div`
     padding: 2rem;
   }
   .single.comments {
+    height: auto;
     padding: 0px;
   }
   .comments li {

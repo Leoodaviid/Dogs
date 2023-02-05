@@ -30,8 +30,8 @@ const LoginCreate = () => {
           password: password.value,
         });
         if (response.status === 200) userLogin(username.value, password.value);
-      } catch (err) {
-        const message = "Error: Email já cadastrado.";
+      } catch (err: any) {
+        const message = `Error: ${err.response.status} verifique os dados e tente novamente.`;
         setError(message);
       } finally {
         setLoading(false);
